@@ -1,9 +1,12 @@
-package com.wipro.assetmanager.components;
+package com.wipro.assetmanager.model;
+
+import com.wipro.assetmanager.dto.UserDto;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.Instant;
 
 
 @Entity
@@ -22,6 +25,16 @@ public class Employee {
 	private String Location;
 	
 	private String Designation;
+
+	public Instant getTime() {
+		return time;
+	}
+
+	public void setTime(Instant time) {
+		this.time = time;
+	}
+
+	private Instant time;
 
 	public Employee() {
 		super();

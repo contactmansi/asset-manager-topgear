@@ -1,5 +1,9 @@
-package com.wipro.assetmanager.components;
+package com.wipro.assetmanager.service;
 
+import com.wipro.assetmanager.EmployeeMapper;
+import com.wipro.assetmanager.dto.EmployeeDto;
+import com.wipro.assetmanager.model.Employee;
+import com.wipro.assetmanager.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -9,17 +13,23 @@ import org.springframework.stereotype.Service;
 public class EmployeeService {
 
 	@Autowired
+	public EmployeeMapper employeeMapper;
+
+	@Autowired
 	public EmployeeRepository employeeRepository;
 
-	public Employee addEmployee(Employee employee){
+	public Employee addEmployee(EmployeeDto employee){
 		Integer employeeID = employee.getId();
+		//map employeeDto to Employee class
 		if(employeeID!=null) {
 			if(employeeRepository.findById(employeeID).isPresent()) 
 			{ 
 				return null;//ERROR: employee ALREADY EXISTS CAN'T SAVE
 			}
 		}
-		return employeeRepository.save(employee);
+
+		Employee model =employeeMapper.mapDto(employee);
+		return employeeRepository.save(model);
 
 	}
 

@@ -1,6 +1,6 @@
-package com.wipro.assetmanager.components;
+package com.wipro.assetmanager.service;
 
-import java.util.Optional;
+import com.wipro.assetmanager.dto.UserDto;
 import org.springframework.stereotype.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +10,7 @@ import org.springframework.stereotype.Component;
 @Service
 public class UserService {
 
-	@Autowired
-	public User user;
-
-	public User loginUser(User user) {
+	public UserDto loginUser(UserDto user) {
 		try {
 
 			if(user != null) {
