@@ -10,15 +10,15 @@ public class EmployeeDto {
 
 	private Integer id;
 
-	private String Surname;
+	private String surname;
 
 	private String name;
 
 	private Integer number;
 
-	private String Location;
+	private String location;
 
-	private String Designation;
+	private String designation;
 
 	public EmployeeDto() {
 		super();
@@ -28,11 +28,15 @@ public class EmployeeDto {
 	public EmployeeDto(Integer id, String surname, String name, Integer number, String location, String designation) {
 		super();
 		this.id = id;
-		Surname = surname;
+		this.surname = surname;
 		this.name = name;
 		this.number = number;
-		Location = location;
-		Designation = designation;
+		this.location = location;
+		this.designation = designation;
+	}
+	
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getId() {
@@ -40,11 +44,11 @@ public class EmployeeDto {
 	}
 
 	public String getSurname() {
-		return Surname;
+		return surname;
 	}
 
 	public void setSurname(String surname) {
-		Surname = surname;
+		this.surname = surname;
 	}
 
 	public String getName() {
@@ -64,25 +68,25 @@ public class EmployeeDto {
 	}
 
 	public String getLocation() {
-		return Location;
+		return location;
 	}
 
 	public void setLocation(String location) {
-		Location = location;
+		this.location = location;
 	}
 
 	public String getDesignation() {
-		return Designation;
+		return designation;
 	}
 
 	public void setDesignation(String designation) {
-		Designation = designation;
+		this.designation = designation;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", Surname=" + Surname + ", name=" + name + ", number=" + number + ", Location="
-				+ Location + ", Designation=" + Designation + "]";
+		return "Employee [id=" + id + ", surname=" + surname + ", name=" + name + ", number=" + number + ", Location="
+				+ location + ", Designation=" + designation + "]";
 	}
 	
 	

@@ -5,6 +5,9 @@ import com.wipro.assetmanager.model.Employee;
 
 import java.time.Instant;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class EmployeeMapper {
     public Employee mapDto(EmployeeDto employee) {
         Employee model = new Employee();
@@ -12,6 +15,7 @@ public class EmployeeMapper {
         model.setLocation(employee.getLocation());
         model.setName(employee.getName());
         model.setNumber(employee.getNumber());
+        model.setSurname(employee.getSurname());
         model.setTime(Instant.now());
 
         return model;

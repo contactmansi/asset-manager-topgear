@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmployeeService {
 
-	//@Autowired
+	@Autowired
 	public EmployeeMapper employeeMapper;
 
 	@Autowired
@@ -28,7 +28,7 @@ public class EmployeeService {
 			}
 		}
 
-		Employee model =employeeMapper.mapDto(employee);
+		Employee model = employeeMapper.mapDto(employee);
 		return employeeRepository.save(model);
 
 	}

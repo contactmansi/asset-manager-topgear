@@ -13,18 +13,19 @@ import java.time.Instant;
 public class Employee {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	private String Surname;
+	private String surname;
 	
 	private String name;
 	
 	private Integer number;
 	
-	private String Location;
+	private String location;
 	
-	private String Designation;
+	private String designation;
+	
+	private Instant time;
 
 	public Instant getTime() {
 		return time;
@@ -34,7 +35,7 @@ public class Employee {
 		this.time = time;
 	}
 
-	private Instant time;
+
 
 	public Employee() {
 		super();
@@ -44,11 +45,16 @@ public class Employee {
 	public Employee(Integer id, String surname, String name, Integer number, String location, String designation) {
 		super();
 		this.id = id;
-		Surname = surname;
+		this.surname = surname;
 		this.name = name;
 		this.number = number;
-		Location = location;
-		Designation = designation;
+		this.location = location;
+		this.designation = designation;
+	}
+
+	
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getId() {
@@ -56,11 +62,11 @@ public class Employee {
 	}
 
 	public String getSurname() {
-		return Surname;
+		return surname;
 	}
 
 	public void setSurname(String surname) {
-		Surname = surname;
+		this.surname = surname;
 	}
 
 	public String getName() {
@@ -80,25 +86,25 @@ public class Employee {
 	}
 
 	public String getLocation() {
-		return Location;
+		return location;
 	}
 
 	public void setLocation(String location) {
-		Location = location;
+		this.location = location;
 	}
 
 	public String getDesignation() {
-		return Designation;
+		return designation;
 	}
 
 	public void setDesignation(String designation) {
-		Designation = designation;
+		this.designation = designation;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", Surname=" + Surname + ", name=" + name + ", number=" + number + ", Location="
-				+ Location + ", Designation=" + Designation + "]";
+		return "Employee [id=" + id + ", surname=" + surname + ", name=" + name + ", number=" + number + ", location="
+				+ location + ", Designation=" + designation + "]";
 	}
 	
 	
