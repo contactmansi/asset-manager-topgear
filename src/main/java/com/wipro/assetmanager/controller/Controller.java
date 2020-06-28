@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 	
 	@Autowired
-	public UserService service;
+	public UserService userService;
 	
 	@Autowired
 	public EmployeeService employeeService;
@@ -23,8 +23,10 @@ public class Controller {
 	//Login
 	@PostMapping("/login")
 	public ResponseEntity login(@RequestBody UserDto user) {
-		 service.loginUser(user);
-			return new ResponseEntity<>(HttpStatus.ACCEPTED);
+		System.out.println("---------- Sending login input details ------");
+		userService.loginUser(user);
+		System.out.println("---------- Processed loginUser service -------");
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 	
 	//Add Employee

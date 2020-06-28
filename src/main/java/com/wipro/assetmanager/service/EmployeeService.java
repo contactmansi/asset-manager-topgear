@@ -1,7 +1,7 @@
 package com.wipro.assetmanager.service;
 
-import com.wipro.assetmanager.EmployeeMapper;
 import com.wipro.assetmanager.dto.EmployeeDto;
+import com.wipro.assetmanager.mapper.EmployeeMapper;
 import com.wipro.assetmanager.model.Employee;
 import com.wipro.assetmanager.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmployeeService {
 
-	@Autowired
+	//@Autowired
 	public EmployeeMapper employeeMapper;
 
 	@Autowired
