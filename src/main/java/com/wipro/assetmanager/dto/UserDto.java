@@ -1,9 +1,12 @@
 package com.wipro.assetmanager.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class UserDto {
 
+	@NotNull
 	private String username;
-	
+	@NotNull
 	private String password;	
 	
 	public UserDto() {

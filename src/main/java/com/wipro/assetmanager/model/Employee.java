@@ -3,9 +3,11 @@ package com.wipro.assetmanager.model;
 import com.wipro.assetmanager.dto.UserDto;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 import java.time.Instant;
 
 
@@ -13,16 +15,24 @@ import java.time.Instant;
 public class Employee {
 	
 	@Id
-	private Integer id;
+	@NotNull(message = "Employee Id is mandatory field")
+	@Pattern(regexp = "^[A-Za-z0-9]+$", message = "Employee Id should be alpha numeric")
+	private String id;
 	
+	@Pattern(regexp = "^[A-Za-z]*$", message = "Only alphabets allowed")
 	private String surname;
 	
+	@NotEmpty(message = "Employee Name is mandatory field")
+	@Pattern(regexp = "^[A-Za-z]*$", message = "Only alphabets allowed")
 	private String name;
 	
+//	@Pattern(regexp = "^[0-9]*$", message = "Mobile No field accepts only Numeric Value")
 	private Integer number;
 	
+	@Pattern(regexp = "^[A-Za-z]*$", message = "Only alphabets allowed")
 	private String location;
 	
+	@Pattern(regexp = "^[A-Za-z]*$", message = "Only alphabets allowed")
 	private String designation;
 	
 	private Instant time;
@@ -42,7 +52,7 @@ public class Employee {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(Integer id, String surname, String name, Integer number, String location, String designation) {
+	public Employee(String id, String surname, String name, Integer number, String location, String designation) {
 		super();
 		this.id = id;
 		this.surname = surname;
@@ -53,11 +63,11 @@ public class Employee {
 	}
 
 	
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 

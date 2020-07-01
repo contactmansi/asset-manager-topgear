@@ -4,6 +4,7 @@ import com.wipro.assetmanager.dto.EmployeeDto;
 import com.wipro.assetmanager.model.Employee;
 
 import java.time.Instant;
+import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
@@ -11,11 +12,12 @@ import org.springframework.stereotype.Component;
 public class EmployeeMapper {
     public Employee mapDto(EmployeeDto employee) {
         Employee model = new Employee();
-        model.setDesignation(employee.getDesignation());
-        model.setLocation(employee.getLocation());
-        model.setName(employee.getName());
-        model.setNumber(employee.getNumber());
-        model.setSurname(employee.getSurname());
+        Optional.ofNullable(employee.getId()).ifPresent(id -> model.setId(id));
+        Optional.ofNullable(employee.getDesignation()).ifPresent(designation -> model.setDesignation(designation));
+        Optional.ofNullable(employee.getLocation()).ifPresent(location -> model.setLocation(location));
+        Optional.ofNullable(employee.getName()).ifPresent(name -> model.setName(name));
+        Optional.ofNullable(employee.getNumber()).ifPresent(number -> model.setNumber(number));
+        Optional.ofNullable(employee.getSurname()).ifPresent(surname -> model.setSurname(surname));
         model.setTime(Instant.now());
 
         return model;

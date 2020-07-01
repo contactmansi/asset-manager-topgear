@@ -1,15 +1,10 @@
 package com.wipro.assetmanager.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 
 public class EmployeeDto {
 
-	private Integer id;
-
+	private String id;
+	
 	private String surname;
 
 	private String name;
@@ -25,7 +20,7 @@ public class EmployeeDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public EmployeeDto(Integer id, String surname, String name, Integer number, String location, String designation) {
+	public EmployeeDto(String id, String surname, String name, Integer number, String location, String designation) {
 		super();
 		this.id = id;
 		this.surname = surname;
@@ -35,11 +30,11 @@ public class EmployeeDto {
 		this.designation = designation;
 	}
 	
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
