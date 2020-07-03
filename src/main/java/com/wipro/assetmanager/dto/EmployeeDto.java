@@ -9,7 +9,7 @@ public class EmployeeDto {
 
 	private String name;
 
-	private Integer number;
+	private Long number;
 
 	private String location;
 
@@ -20,7 +20,7 @@ public class EmployeeDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public EmployeeDto(String id, String surname, String name, Integer number, String location, String designation) {
+	public EmployeeDto(String id, String surname, String name, Long number, String location, String designation) {
 		super();
 		this.id = id;
 		this.surname = surname;
@@ -54,11 +54,11 @@ public class EmployeeDto {
 		this.name = name;
 	}
 
-	public Integer getNumber() {
+	public Long getNumber() {
 		return number;
 	}
 
-	public void setNumber(Integer number) {
+	public void setNumber(Long number) {
 		this.number = number;
 	}
 

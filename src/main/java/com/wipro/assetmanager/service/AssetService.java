@@ -42,8 +42,23 @@ public class AssetService {
 			e.printStackTrace();
 			throw new GenericException("Error occurred while saving");
 		}
+	}
+	
 
-
+	public void updateAsset(AssetDto assetDto) {
+		try {
+			//Mapping
+			Asset model = mapper.mapDto(assetDto);
+			//Save into Asset Model
+			assetRepository.save(model);
+		}
+		catch(Exception e) {
+			//REMOVE these two statements later
+			System.out.println("--------- PRINTING STACK TRACE-----");
+			e.printStackTrace();
+			throw new GenericException("Error occurred while saving");
+		}	
+		
 	}
 
 	public Object viewAssetList(String assetId, String employeeId) {
@@ -51,7 +66,7 @@ public class AssetService {
 		if(assetId==null && employeeId ==null) //both null
 			throw new GenericException("No records found");
 
-		else if(assetId!=null) { // employeeId null work with assetId
+		else if(assetId!=null) { // assetId present in inputs
 			Optional<Asset> asset = assetRepository.findById(assetId);
 			if(!asset.isPresent()) {
 				throw new GenericException("No records found");
@@ -65,17 +80,17 @@ public class AssetService {
 			 */
 
 
-			if(employeeId!=null) {
+			if(employeeId!=null) { //EmployeeId also present in inputs
 				if(!asset.get().getEmployeeId().getId().equals(employeeId)) {
 
 					System.out.println("---- Exception from employeeID comparison---"); throw new
 					GenericException("No records found"); }
 
 			}
-
 			return asset.get();
 		}
 		
+		//Only Employee Id in inputs --> return list of assets from Asset Repo
 		Optional<Employee> employee = employeeRepository.findById(employeeId);
 		if(!employee.isPresent()) 
 			throw new GenericException("No records found");
@@ -86,6 +101,7 @@ public class AssetService {
 			throw new GenericException("No records found");
 		}
 		
+		//Sort assets acc to Asset ID
 		Collections.sort(asset.get(), new Comparator<Asset>() { 
 			public int compare(Asset o1, Asset o2) { 
 				return o1.getAssetId().compareTo(o2.getAssetId()); 
@@ -93,6 +109,7 @@ public class AssetService {
 		});
 		return asset.get();		
 
-	}	
+	}
+		
 
 }

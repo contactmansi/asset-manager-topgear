@@ -27,12 +27,12 @@ public class Employee {
 	private String name;
 	
 //	@Pattern(regexp = "^[0-9]*$", message = "Mobile No field accepts only Numeric Value")
-	private Integer number;
+	private Long number;
 	
-	@Pattern(regexp = "^[A-Za-z]*$", message = "Only alphabets allowed")
+	@Pattern(regexp = "^[A-Za-z ]*$", message = "Only alphabets allowed")
 	private String location;
 	
-	@Pattern(regexp = "^[A-Za-z]*$", message = "Only alphabets allowed")
+	@Pattern(regexp = "^[A-Za-z ]*$", message = "Only alphabets allowed")
 	private String designation;
 	
 	private Instant time;
@@ -52,7 +52,7 @@ public class Employee {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(String id, String surname, String name, Integer number, String location, String designation) {
+	public Employee(String id, String surname, String name, Long number, String location, String designation) {
 		super();
 		this.id = id;
 		this.surname = surname;
@@ -87,11 +87,11 @@ public class Employee {
 		this.name = name;
 	}
 
-	public Integer getNumber() {
+	public Long getNumber() {
 		return number;
 	}
 
-	public void setNumber(Integer number) {
+	public void setNumber(Long number) {
 		this.number = number;
 	}
 
