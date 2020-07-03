@@ -1,10 +1,13 @@
 package com.wipro.assetmanager.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class UserDto {
 
+	@NotNull
 	private String username;
-	
-	private String passowrd;	
+	@NotNull
+	private String password;	
 	
 	public UserDto() {
 		super();
@@ -12,10 +15,10 @@ public class UserDto {
 	}
 
 
-	public UserDto(String username, String passowrd) {
+	public UserDto(String username, String password) {
 		super();
 		this.username = username;
-		this.passowrd = passowrd;
+		this.password = password;
 	}
 
 	public String getUsername() {
@@ -28,13 +31,13 @@ public class UserDto {
 	}
 
 
-	public String getPassowrd() {
-		return passowrd;
+	public String getPassword() {
+		return password;
 	}
 
 
-	public void setPassowrd(String passowrd) {
-		this.passowrd = passowrd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	

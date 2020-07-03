@@ -1,51 +1,49 @@
 package com.wipro.assetmanager.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-
 
 public class EmployeeDto {
 
-	private Integer id;
-
-	private String Surname;
+	private String id;
+	
+	private String surname;
 
 	private String name;
 
-	private Integer number;
+	private Long number;
 
-	private String Location;
+	private String location;
 
-	private String Designation;
+	private String designation;
 
 	public EmployeeDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public EmployeeDto(Integer id, String surname, String name, Integer number, String location, String designation) {
+	public EmployeeDto(String id, String surname, String name, Long number, String location, String designation) {
 		super();
 		this.id = id;
-		Surname = surname;
+		this.surname = surname;
 		this.name = name;
 		this.number = number;
-		Location = location;
-		Designation = designation;
+		this.location = location;
+		this.designation = designation;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
 	public String getSurname() {
-		return Surname;
+		return surname;
 	}
 
 	public void setSurname(String surname) {
-		Surname = surname;
+		this.surname = surname;
 	}
 
 	public String getName() {
@@ -56,34 +54,34 @@ public class EmployeeDto {
 		this.name = name;
 	}
 
-	public Integer getNumber() {
+	public Long getNumber() {
 		return number;
 	}
 
-	public void setNumber(Integer number) {
+	public void setNumber(Long number) {
 		this.number = number;
 	}
 
 	public String getLocation() {
-		return Location;
+		return location;
 	}
 
 	public void setLocation(String location) {
-		Location = location;
+		this.location = location;
 	}
 
 	public String getDesignation() {
-		return Designation;
+		return designation;
 	}
 
 	public void setDesignation(String designation) {
-		Designation = designation;
+		this.designation = designation;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", Surname=" + Surname + ", name=" + name + ", number=" + number + ", Location="
-				+ Location + ", Designation=" + Designation + "]";
+		return "Employee [id=" + id + ", surname=" + surname + ", name=" + name + ", number=" + number + ", Location="
+				+ location + ", Designation=" + designation + "]";
 	}
 	
 	
